@@ -1,0 +1,53 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html ng-app="AngularStore">
+<head>
+    <title>Shopping Cart with AngularJS</title>
+
+    <!-- jQuery, Angular -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular.min.js" type="text/javascript"></script>
+
+    <!-- Bootstrap -->
+    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/css/bootstrap-glyphicons.css" rel="stylesheet" />
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" />
+    <!--<script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js" type="text/javascript" ></script>-->
+    <!-- Stripe -->
+    <script src="https://checkout.stripe.com/v2/checkout.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/3.32/jquery.form.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.blockUI/2.61.0-2013.06.06/jquery.blockUI.min.js"></script>
+
+    <!-- includes for the Demo Store app -->
+    <script src="~/js/cartProduct.js" type="text/javascript"></script>
+    <script src="~/js/cartStore.js" type="text/javascript"></script>
+    <script src="~/js/shoppingCart.js" type="text/javascript"></script>
+    <script src="~/js/cartApp.js" type="text/javascript"></script>
+    <script src="~/js/cartControllers.js" type="text/javascript"></script>
+    <link href="~/css/styles.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span10 offset1">
+                <h1 class="well">
+                    <a href="cart" style="text-decoration:none;">
+                        <span class="glyphicon glyphicon-shopping-cart"></span>
+                       @* <img src="~/img/logo.png" height="60" width="60" alt="logo" />*@
+                        Demo Store
+                    </a>
+                    <a href="index" class="btn btn-primary btn-small" style="float: right; margin-bottom: 10px;">
+                        Main Page
+                    </a>
+                </h1>
+                <div ng-view></div>
+            </div>
+        </div>
+        <p class="text-faded">Credit: http://www.codeproject.com/Articles/576246/A-Shopping-Cart-Application-Built-with-AngularJS </p>
+    </div>
+</body>
+</html>
