@@ -1,0 +1,92 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html ng-app="myApp">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+    <script src="~/js/main.js"></script>
+      <link href="~/css/styles.css" rel="stylesheet" />
+      <link href="~/css/foundation.min.css" rel="stylesheet" />
+
+  </head>
+  <body style="padding: 10px;">
+      {{ name | uppercase }}
+
+      <div ng-controller="MyController">
+          <h5>{{ clock }}</h5>
+          {{ person.name }}
+          <br />
+          {{ 10 * 3.3 | currency }}
+          <br/>
+          <ul>
+              <li ng-repeat="person in roommates">{{ person.name }}</li>
+          </ul>
+          <ul>
+              <li ng-repeat="(name, color) in people">
+                  {{ name }}'s favorite color is {{ color }}
+              </li>
+          </ul>
+      </div>
+      <div ng-controller="ParentController">
+          <div ng-controller="ChildController">
+              <input type="text" ng-model="person.name" placeholder="Name" />
+              <a ng-click="sayHello()">Say hello</a>
+          </div>
+          {{ person }}
+      </div>
+      <br />
+      <button ng-init="shouldShow = true" ng-click="shouldShow = !shouldShow">Flip the shouldShow variable</button>
+      <div ng-show="shouldShow">
+          <h3>Showing {{ shouldShow }}</h3>
+      </div>
+      <div ng-hide="shouldShow">
+          <h3>Hiding {{ shouldShow }}</h3>
+      </div>
+      <div ng-controller="PlayerController">
+          @*<button ng-click="play()" class="button" ng-show="!playing">Play</button>
+          <button ng-click="stop()" class="button alert" ng-show="playing">Stop</button>
+          Playing audio: <b>{{ playing }}</b>*@
+          @*<ul id="programs_list" class="">
+              <li ng-repeat="program in programs" ng-click="play(program)">
+                  <span class="large-12">{{ program.title.$text }}</span>
+              </li>
+          </ul>*@
+          <ul id="programs_list" class="">
+              <li ng-repeat="program in programs">
+                  <span ng-model="program" player="player"></span>
+              </li>
+          </ul>
+
+      </div>
+      <br />
+
+      <div class="large-4 small-4 columns" ng-controller="RelatedController">
+          <h2>Related content</h2>
+          <ul id="related">
+              <li ng-repeat="s in related"><a href="{{ s.link }}">{{ s.caption }}</a></li>
+          </ul>
+      </div>
+      <div ng-controller="MyController">
+          <input type="text" ng-model="person.name" placeholder="Enter your name" />
+          <h5>Hello {{ person.name }}</h5>
+      </div>
+      <div ng-controller="DemoController">
+          <h4>The simplest adding machine ever</h4>
+          <button ng-click="add(1)" class="button">Add</button>
+          <button ng-click="subtract(1)" class="button">Subtract</button>
+          <h4>Current count: {{ counter }}</h4>
+      </div>
+
+      <div ng-controller="ServiceController">
+          <label for="username">Type in a GitHub username</label>
+          <input type="text" ng-model="username" placeholder="Enter a GitHub username, like auser" />
+          <pre ng-show="username">{{ events }}</pre>
+      </div>
+      <br />
+      <hr />
+  </body>
+</html>
